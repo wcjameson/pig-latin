@@ -97,3 +97,49 @@ const word = "hello";
 const text = "hello there";
 boldPassage(word, text);
 Expected Output: "<p><b>hello</b> there</p>"
+
+
+## Describe: getDuplicateWordCount 
+
+Test: "It should return 1"
+Code:
+const sentence = "doesn't matter what the text is";
+getDuplicateWordCount(sentence);
+Expected Output: 1
+
+Test: "It should return the same split input"
+Code:
+const sentence = "Any sentence you like";
+getDuplicateWordCount(sentence);
+Expected Output: [Any, sentence, you, like]
+
+Test: "It should return formatted <p> with count of each word occurrence"
+Code:
+const sentence = "Any sentence you like, you can be any sentence sometimes";
+getDuplicateWordCount(sentence);
+Expected Output: <p>Any: 2<br>
+                  sentence: 2<br>
+                  you: 2<br>
+                  like,: 1<br>
+                  you: 2<br>
+                  can: 1<br>
+                  be: 1<br>
+                  any: 2<br>
+                  sentence: 2<br>
+                  sometimes: 1<br>
+                  </p>
+
+Test: "It should return formatted <p> with count of each word occurrence"
+Code:
+const sentence = "Any sentence you like, you can be any sentence sometimes";
+getDuplicateWordCount(sentence);
+Expected Output: <p>Any: 2<br>
+                  sentence: 2<br>
+                  you: 2<br>
+                  like,: 1<br>
+                  you: 2<br>
+                  can: 1<br>
+                  be: 1<br>
+                  any: 2<br>
+                  sentence: 2<br>
+                  sometimes: 1</p>                 

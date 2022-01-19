@@ -53,6 +53,30 @@ function boldPassage(word, text) {
   return htmlString + "</p>";
 }
 
+function getDuplicateWordCount (sentence) {
+  let sentenceArray = sentence.split(" ");
+  let wordCountArray = [];
+  let paragraph = "<p>";
+  let count;
+  sentenceArray.forEach(function(word, index) {
+    count = 0;
+    sentenceArray.forEach(function (compareWord) {
+      if (word === compareWord) {
+        count++;
+      }
+      wordCountArray[index] = count;
+    });
+    //console.log(word + ": " + count);
+    paragraph = paragraph.concat(word + ": " + count);
+    if (index !== (sentenceArray.length - 1)) {
+      paragraph = paragraph.concat("<br>");
+    }
+  });
+  paragraph = paragraph.concat("</p>");
+  return paragraph;
+}
+
+
 // UI Logic
 
 $(document).ready(function() {
