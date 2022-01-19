@@ -121,7 +121,7 @@ function removeOffensiveWordsTwo (sentence) {
   console.log(stringArray.join(" "));
 }
 
-//removeOffensiveWordsTwo("This is zoinks! Muppeteer are biffaroni ya big loopdaloop");
+// to test removeOffensiveWordsTwo("This is zoinks! Muppeteer are biffaroni ya big loopdaloop");
 
 
 // UI Logic
@@ -146,7 +146,7 @@ $(document).ready(function() {
 $('form#form').submit(function(event) {
   event.preventDefault();
   $('ul#result').empty();
-  
+
   let textArray = $('input#sentence').val().toLowerCase().split(" ");
   let multiDimArray = [];
   let uniqueArray = textArray.filter( function( item, index, inputArray ) {
