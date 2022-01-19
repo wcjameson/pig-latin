@@ -142,4 +142,12 @@ Expected Output: <p>Any: 2<br>
                   be: 1<br>
                   any: 2<br>
                   sentence: 2<br>
-                  sometimes: 1</p>                 
+                  sometimes: 1</p>
+
+## Describe: mostUsedWords
+
+Test: "It should return 1"
+Code:
+const sentence = "Any sentence you like";
+mostUsedWords(sentence);
+Expected Output: 1                                  

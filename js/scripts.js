@@ -76,6 +76,53 @@ function getDuplicateWordCount (sentence) {
   return paragraph;
 }
 
+function getWordCount (sentence, word) {
+
+}
+
+function mostUsedWords(sentence) {
+  let sentenceArray = sentence.split(" ");
+  sentenceArray.forEach(function(word, index) {
+
+
+  })
+
+
+}
+
+// function removeOffensiveWords (sentence) {
+//   const badWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+//   let output = sentence;
+//   badWords.forEach(function(word) {
+//     //console.log(sentence.replace(word,"*****"));
+//     if (sentence.toLowerCase().indexOf(word) > -1) {
+//       //console.log("the condition is true");
+//       output = output.toLowerCase().replace(word,"*****");
+//     }
+//   })
+//   console.log(output);
+// }
+
+
+
+function removeOffensiveWordsTwo (sentence) {
+  const badWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+  let stringArray = sentence.split(" ");
+
+
+
+  stringArray.forEach(function (word, index) {
+    badWords.forEach(function(replacementWord) {
+      if (word.toLowerCase().includes(replacementWord.toLowerCase())) {
+        stringArray[index] = "*****";
+      }
+    })
+  })
+  console.log(stringArray.join(" "));
+}
+
+//removeOffensiveWordsTwo("This is zoinks! Muppeteer are biffaroni ya big loopdaloop");
+
 
 // UI Logic
 
@@ -90,4 +137,37 @@ $(document).ready(function() {
     $("#selected-count").html(occurrencesOfWord);
     $("#bolded-passage").html(boldPassage(word, passage));
   });
+});
+
+
+
+
+
+$('form#form').submit(function(event) {
+  event.preventDefault();
+  $('ul#result').empty();
+  
+  let textArray = $('input#sentence').val().toLowerCase().split(" ");
+  let multiDimArray = [];
+  let uniqueArray = textArray.filter( function( item, index, inputArray ) {
+    return inputArray.indexOf(item) === index;
+  }); 
+
+  uniqueArray.forEach(function(word) {
+    let count = 0;
+    textArray.forEach(function(secondRun) {
+      if (word === secondRun) {
+        count++;
+      }
+    });
+    multiDimArray.push([count,word]);
+  });
+
+  console.log(multiDimArray.sort().reverse());
+  
+  multiDimArray.sort().reverse().forEach(function(obj) {
+    $('ul#result').append("<li>" +  obj[1] + " " + obj[0] +  "</li>");
+  });
+  
+  $("#sentence").val("");  
 });
