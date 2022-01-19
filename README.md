@@ -151,3 +151,94 @@ Code:
 const sentence = "Any sentence you like";
 mostUsedWords(sentence);
 Expected Output: 1                                  
+
+
+
+## Describe: vowelCounter();
+
+Test: "It recognizes a single vowel."
+Code: vowelCounter("a");
+Expected Output: 1
+
+Test: "It recognizes a single vowel regardless of case."
+Code: vowelCounter("A");
+Expected Output: 1
+
+Test: "It recognizes a single vowel in a word with multiple characters."
+Code: vowelCounter("cat");
+Expected Output: 1
+
+Test: "It recognizes multiple vowels in a single word."
+Code: vowelCounter("cater");
+Expected Output: 2
+
+Test: "It recognizes vowels in a multiple-word sentence."
+Code: vowelCounter("cats catered the event");
+Expected Output: 7
+
+Test: "It recognizes vowels in a multiple word sentence regardless of capitalization."
+Code: vowelCounter("CATS CATERED THE EVENT");
+Expected Output: 7
+
+Test: "It recognizes all vowels in a multiple-word sentence regardless of inconsistent capitalization."
+Code: vowelCounter("CaTS CATEReD ThE EveNT");
+Expected Output: 7
+
+Test: "It ignores non-alphabetical characters since they can't be vowels."
+Code: vowelCounter("*&$92%");
+Expected Output: 0
+
+
+
+
+
+## Describe: pigLatin();
+
+Test: "It should return vowel + way"
+Code:
+const sentence = "a";
+pigLatin(sentence);
+Expected Output: "away"
+
+Test: "It should return consonant + ay"
+Code:
+const sentence = "c";
+pigLatin(sentence);
+Expected Output: "cay"
+
+Test: "For word beginning with vowels, add way to end"
+Code:
+const sentence = "apple";
+pigLatin(sentence);
+Expected Output: "appleway"
+
+Test: "For word beginning with consonants, move consonant to end of word, add ay to end of word"
+Code:
+const sentence = "movies";
+pigLatin(sentence);
+Expected Output: "oviesmay"
+
+Test: "For multi word strings beginning with vowels, add way to end of any vowel words"
+Code:
+const sentence = "apple orange";
+pigLatin(sentence);
+Expected Output: "appleway orangeway"
+
+Test: "For multi word strings beginning with consonants, add ay to end of any consonant words"
+Code:
+const sentence = "carrot danger";
+pigLatin(sentence);
+Expected Output: "arrotcay angerday"
+
+Test: "For strings with (1)vowel words and (2)consonant words, add either (1)way or (2)letter flip+ay"
+Code:
+const sentence = "apples have some danger";
+pigLatin(sentence);
+Expected Output: "applesway avehay omesay angerday"
+
+Test: "For words that start with q or qu, move q ro qu to end of word, add ay"
+Code:
+const sentence = "quick";
+pigLatin(sentence);
+Expected Output: "icksquay"
+
