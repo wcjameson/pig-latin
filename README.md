@@ -242,3 +242,9 @@ const sentence = "quick";
 pigLatin(sentence);
 Expected Output: "icksquay"
 
+Test: "Parse multi word string that includes multiple vowel, consonant and qu words"
+Code:
+const sentence = "quick foxes eat all the apples";
+pigLatin(sentence);
+Expected Output: "ickquay oxesfay eatway allway hetay applesay"
+
